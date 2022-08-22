@@ -6,7 +6,7 @@ function App() {
     console.log(response);
   }
   const handleClick = () => {
-    axios.post("http://localhost:5050/users").then(handleResponse);
+    axios.get("http://localhost:5050/users").then(handleResponse);
   };
   return (
     <div className="App">

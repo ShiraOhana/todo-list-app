@@ -24,7 +24,7 @@ mongoose
 
 app.use(express.json());
 
-app.post("/users", (req, res) => {
+app.get("/users", (req, res) => {
   console.log(req.body);
   res.send("testing");
 });
