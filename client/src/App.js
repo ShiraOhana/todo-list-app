@@ -1,12 +1,13 @@
 import "./App.css";
 import axios from "axios";
+import { api } from "./API/api";
 
 function App() {
   function handleResponse(response) {
     console.log(response);
   }
   const handleClick = () => {
-    axios.get("http://localhost:5050/users").then(handleResponse);
+    axios.get("/users").then(handleResponse);
   };
   return (
     <div className="App">
