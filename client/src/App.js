@@ -7,7 +7,7 @@ function App() {
     console.log(response);
   }
   const handleClick = () => {
-    axios.get("/users").then(handleResponse);
+    api.get("/users").then(handleResponse);
   };
   return (
     <div className="App">
