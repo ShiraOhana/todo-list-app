@@ -24,6 +24,10 @@ app.get("/users", (req, res) => {
   console.log(req.body);
   res.send("testing");
 });
+app.get("/", (req, res) => {
+  console.log(req.body);
+  res.send("<h1>Hello world</h1>");
+});
 
 // Connecting react to express
 app.get("/", (req, res) => {
