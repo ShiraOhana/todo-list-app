@@ -34,9 +34,8 @@ app.get("/users", (req, res) => {
 });
 
 //
-app.get("/", (req, res) => {
-  console.log(req.body);
-  res.send("<h1>Hello world</h1>");
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(publicPath, "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`));
