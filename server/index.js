@@ -2,9 +2,17 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
+import path from "path";
 import "dotenv/config";
+import * as url from "url";
 
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
+
+// The path for connecting react to express
+const publicPath = path.join(__dirname, "client", "build");
+app.use(express.static(publicPath));
+
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 
@@ -24,14 +32,11 @@ app.get("/users", (req, res) => {
   console.log(req.body);
   res.send("testing");
 });
+
+//
 app.get("/", (req, res) => {
   console.log(req.body);
   res.send("<h1>Hello world</h1>");
-});
-
-// Connecting react to express
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`));
