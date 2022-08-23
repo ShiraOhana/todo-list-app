@@ -10,7 +10,7 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 
 // The path for connecting react to express
-const publicPath = path.join(__dirname, "client", "build");
+const publicPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(publicPath));
 
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
